@@ -263,6 +263,9 @@ p {
   text-align: center;
   position: relative;
   overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
 }
 .page-hero__bg {
   position: absolute;
@@ -270,11 +273,30 @@ p {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
   opacity: 0.2;
 }
 .page-hero__content {
   position: relative;
   z-index: 1;
+  padding: 4rem 1.5rem;
+  width: 100%;
+}
+@media (max-width: 768px) {
+  .page-hero {
+    min-height: 320px;
+  }
+  .page-hero__content {
+    padding: 3rem 1.5rem;
+  }
+}
+@media (max-width: 480px) {
+  .page-hero {
+    min-height: 240px;
+  }
+  .page-hero__content {
+    padding: 2.5rem 1.5rem;
+  }
 }
 .page-hero h1 {
   margin-bottom: 0.75rem;
@@ -518,21 +540,22 @@ p {
 }
 
 /* === STORY === */
-.story {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+.story__text {
+  max-width: 780px;
+  margin: 0 auto;
 }
 .story__text h2 {
   margin-bottom: 1.25rem;
+}
+.story__text p + p {
+  margin-top: 1rem;
 }
 
 /* === TEAM === */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
 }
 .team-card {
   background: rgba(255, 255, 255, 0.07);
@@ -550,14 +573,45 @@ p {
   font-size: 0.9rem;
   opacity: 0.85;
 }
+.team-card__body p + p {
+  margin-top: 0.6rem;
+}
+.team-card__role {
+  font-size: 0.8rem !important;
+  font-style: italic;
+  color: var(--gold);
+  opacity: 1 !important;
+  margin-bottom: 0.6rem;
+}
+.team-card__qual-heading {
+  margin-top: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+.team-card__quals {
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+.team-card__quals li {
+  font-size: 0.875rem;
+  opacity: 0.85;
+  margin-bottom: 0.3rem;
+  line-height: 1.5;
+}
+@media (max-width: 600px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+  .team-card img {
+    height: 300px !important;
+  }
+}
 
 /* === RESPONSIVE — ABOUT === */
 @media (max-width: 768px) {
-  .story {
+  .team-grid {
     grid-template-columns: 1fr;
-  }
-  .story__image {
-    order: -1;
+    gap: 1.5rem;
   }
 }
 
