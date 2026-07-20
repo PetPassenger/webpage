@@ -263,7 +263,7 @@ p {
   text-align: center;
   position: relative;
   overflow: hidden;
-  min-height: 480px;
+  min-height: 620px;
   display: flex;
   align-items: center;
 }
@@ -279,23 +279,23 @@ p {
 .page-hero__content {
   position: relative;
   z-index: 1;
-  padding: 4rem 1.5rem;
+  padding: 6rem 1.5rem;
   width: 100%;
 }
 @media (max-width: 768px) {
+  .page-hero {
+    min-height: 420px;
+  }
+  .page-hero__content {
+    padding: 4rem 1.5rem;
+  }
+}
+@media (max-width: 480px) {
   .page-hero {
     min-height: 320px;
   }
   .page-hero__content {
     padding: 3rem 1.5rem;
-  }
-}
-@media (max-width: 480px) {
-  .page-hero {
-    min-height: 240px;
-  }
-  .page-hero__content {
-    padding: 2.5rem 1.5rem;
   }
 }
 .page-hero h1 {
@@ -540,15 +540,51 @@ p {
 }
 
 /* === STORY === */
+.story__layout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  align-items: start;
+}
+.story__image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  position: sticky;
+  top: 6rem;
+}
 .story__text {
-  max-width: 780px;
-  margin: 0 auto;
+  max-width: 100%;
+}
+p.alone {
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  font-style: italic;
+  text-align: center;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.story__body {
+  margin: 1.5rem 0 0;
+}
+.story__body p + p {
+  margin-top: 1rem;
 }
 .story__text h2 {
   margin-bottom: 1.25rem;
 }
 .story__text p + p {
   margin-top: 1rem;
+}
+@media (max-width: 768px) {
+  .story__layout {
+    grid-template-columns: 1fr;
+  }
+  .story__image {
+    position: static;
+  }
 }
 
 /* === TEAM === */
@@ -624,12 +660,15 @@ p {
   margin: 0 auto 3rem;
 }
 .services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1.75rem;
 }
 .service-card {
   display: flex;
+  flex: 1 1 300px;
+  max-width: 370px;
   gap: 1.25rem;
   padding: 1.75rem;
   border-radius: 8px;
@@ -711,8 +750,7 @@ p {
 .pricing-phone {
   font-size: 1.4rem;
   padding: 1rem 2.5rem;
-  display: block;
-  width: 100%;
+  display: inline-flex;
   text-align: center;
 }
 .pricing-email-note {
